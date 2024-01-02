@@ -1,0 +1,12 @@
+.add{
+    display: flex;
+    justify-content: end;
+    margin-bottom: 2%;
+}
+
+.containertable{
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    padding: 1%;
+    border-radius: 20px;
+    width: 100%;
+}

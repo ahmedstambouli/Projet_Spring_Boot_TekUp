@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <title>Edit Voiture</title>
+</head>
+<body>
+  <header th:replace= "~{/navbar :: navbar} "></header>
+  <div class="container ">
+   <h1 class="text-center">Modifier Voiture</h1>
+    <form th:action="@{/Voiture/{voitureId}/edit}" th:object="${voitureForm}" method="post" enctype="multipart/form-data">
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Immatriculation</label>
+        <input type="text" class="form-control" th:field="${voitureForm.id}">
+        <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}">immatriculation Error</span>
+
+      </div>
+
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Immatriculation</label>
+            <input type="text" class="form-control" th:field="${voitureForm.immatriculation}">
+            <span th:if="${#fields.hasErrors('immatriculation')}" th:errors="*{immatriculation}">immatriculation Error</span>
+
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">modele de voiture</label>
+            <input type="text" class="form-control" th:field="${voitureForm.modele}">
+            <span th:if="${#fields.hasErrors('modele')}" th:errors="*{modele}">modele Error</span>
+
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Marque de voiture</label>
+            <input type="text" class="form-control" th:field="${voitureForm.marque}">
+            <span th:if="${#fields.hasErrors('marque')}" th:errors="*{marque}">marque Error</span>
+
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="file" class="form-control"  th:field="*{image}" placeholder="image">
+            <label for="floatingInput">image</label>
+            <span th:if="${#fields.hasErrors('image')}" th:errors="*{image}">image Error</span>
+          </div>
+
+
+    
+
+        <div th:each="image : ${existingImages}">
+            <img th:src="@{|/images/${image}|}" width="100" height="100" /> 
+        </div>
+        <a href="">aaa</a>
+        <input type="submit" value="Enregistrer les modifications"  class="btn btn-primary">
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</body>
+</html>

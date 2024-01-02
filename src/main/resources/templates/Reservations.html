@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create Reservation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/Reservations.css">
+</head>
+<body>
+    <header th:replace= "/navbarloginregister :: navbarloginregister "></header>
+
+
+ 
+    
+
+ 
+<div class="container text-center" style="margin-top: 5%;">
+    <h1>Faites une nouvelle réservation!</h1>
+<div class="row">
+    <div class="col" th:each="voiture : ${voitures}" >
+        <div class="card" style="width: 18rem;">
+                <img th:src="@{|/images/${voiture.image}|}" class="uniform-image card-img-top"  alt="..." >
+            
+            <div class="card-body">
+              <h5 class="card-title" >Immatriculation: <span th:text="${voiture.immatriculation}"></span></h5>
+              <h5 class="card-title" >Marque: <span th:text="${voiture.marque}"></span></h5>
+              <h5 class="card-title" >modele: <span th:text="${voiture.modele}"></span></h5>
+                <div class="btne">
+
+                           
+                        <a th:href= "@{|Reservation/reservation/${voiture.id}|}" class="btn btn-success" style="margin-right: 1%;">Reserver </a>
+                        </a>
+                   
+                </div>
+             
+            </div>
+          </div>
+    </div>
+</div>
+</div>
+
+    <!-- <label for="startDate">Start Date:</label>
+    <input type="datetime-local" id="startDate" name="startDate" th:field="*{startDate}"  >
+    <br><br>
+    
+    <label for="endDate">End Date:</label>
+    <input type="datetime-local" id="endDate" name="endDate" th:field="*{endDate}" >
+    <br><br>
+    
+    <label for="voiture">Select a Car:</label>
+    <select id="voiture" name="voiture.id" th:field="*{Voiture_id}">
+        <option th:each="voiture : ${voitures}" th:value="${voiture.id}" th:text="${voiture.name}"></option>
+    </select>
+    <br><br>
+    
+    <input type="submit" value="Submit">
+</form>  -->
+
+</body>
+</html>

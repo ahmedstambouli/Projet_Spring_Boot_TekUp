@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier un Utilisateur</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+<body>
+    <header th:replace= "/navbar :: navbar "></header>
+
+    <div class="container mt-4">
+        <h2>Modifier un Utilisateur</h2>
+        <form action="#" th:action="@{|/User/${UserId}/edituser|}" th:object="${userForm}" method="post">
+            <input type="hidden" th:field="*{id}">
+    
+            <div class="form-group">
+                <label for="username">Nom d'utilisateur :</label>
+                <input type="text" class="form-control" id="username" th:field="*{username}">
+            </div>
+            <div class="form-group">
+                <label for="email">Email :</label>
+                <input type="email" class="form-control" id="email" th:field="*{email}">
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de passe :</label>
+                <input type="password" class="form-control" id="password" th:field="*{password}">
+            </div>
+            <div class="form-group">
+                <label for="address">Adresse :</label>
+                <input type="text" class="form-control" id="address" th:field="*{address}">
+            </div>
+            <div class="form-group">
+                <label for="role">Rôle :</label>
+                <select class="form-control" id="role" th:field="*{role}">
+                    <option value="CLIENT">Client</option>
+                    <option value="ADMIN">Admin</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
